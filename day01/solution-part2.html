@@ -1,0 +1,41 @@
+<html>
+<head>
+	<title>Advent of Code - Day 01 - Solution</title>
+	<script type="text/javascript">
+
+		String.prototype.countCharacters = function(searchValue){
+			var foundPosition = 0;
+			var totalValue = 0;
+			for(var i=0; i<this.length; i++) {
+				if(this[i]=="(")
+					totalValue++;
+				else
+					totalValue--;
+				
+				if(totalValue==searchValue) return(i+1);
+			}
+		};
+
+		function calculate (searchString) {
+			var result = searchString.countCharacters(-1);
+			console.log(result);
+		}
+
+	</script>
+
+	<style type="text/css">
+		
+		body {}
+
+	</style>
+</head>
+<body>
+
+<div class="aoc-input">
+		<textarea id="inputstring"></textarea>
+		<button onclick="calculate(document.getElementById('inputstring').value);">calculate</button>
+</div>
+
+
+</body>
+</html>

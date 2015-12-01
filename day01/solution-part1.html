@@ -1,0 +1,47 @@
+<html>
+<head>
+	<title>Advent of Code - Day 01 - Solution</title>
+	<script type="text/javascript">
+
+		String.prototype.countCharacters = function(searchCharacter){
+			var curPos = 0;
+			var cntFrequency = 0;
+
+			curPos = this.indexOf(searchCharacter, curPos);
+			//console.log(curPos);
+
+			while(curPos!=-1) {
+				//console.log("found at "+curPos);
+				cntFrequency++;
+				curPos = this.indexOf(searchCharacter, curPos+1);
+			}
+
+			return cntFrequency;
+		};
+
+		function calculate (searchString) {
+			console.log(searchString);
+			var positive = searchString.countCharacters("(");
+			var negative = searchString.countCharacters(")");
+			var result = positive-negative;
+			console.log(result);
+		}
+
+	</script>
+
+	<style type="text/css">
+		
+		body {}
+
+	</style>
+</head>
+<body>
+
+<div class="aoc-input">
+		<textarea id="inputstring"></textarea>
+		<button onclick="calculate(document.getElementById('inputstring').value);">calculate</button>
+</div>
+
+
+</body>
+</html>
