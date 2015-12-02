@@ -21,7 +21,7 @@
 				}
 
 				// check if the configured search value is found
-				if(totalValue==config.searchvalue) {
+				if(!valueFound && totalValue==config.searchvalue) {
 					valueFound = true;
 					foundValueAtPosition = currentPosition;
 				}
@@ -29,7 +29,7 @@
 
 			return {
 				"totalvalue": totalValue,
-				"foundposition": foundValueAtPosition
+				"foundposition": valueFound ? foundValueAtPosition : valueFound
 			};
 
 		};
@@ -54,8 +54,12 @@
 			document.getElementById("oac-output-container").innerHTML = "";
 			document.getElementById("oac-output-container").innerHTML += "<p>";
 			document.getElementById("oac-output-container").innerHTML += "Total value of string: <strong>"+ result.totalvalue +"</strong><br>";
-			document.getElementById("oac-output-container").innerHTML += "Found value at position: <strong>"+ result.foundposition +"</strong>";
-		}	document.getElementById("oac-output-container").innerHTML += "</p>";
+			if(result.foundposition===false)
+				document.getElementById("oac-output-container").innerHTML += "String did not reach value "+ config.searchvalue;
+			else 
+				document.getElementById("oac-output-container").innerHTML += "Value "+ config.searchvalue +" reached at position: <strong>"+ result.foundposition +"</strong>";
+			document.getElementById("oac-output-container").innerHTML += "</p>";
+		}	
 
 	</script>
 	<link rel="stylesheet" type="text/css" href="../styles/default.css">
@@ -79,7 +83,9 @@
 	<section class="aoc-input">
 		<h3>Input</h3>
 		<textarea id="inputstring"></textarea>
-		<button onclick="calculate(document.getElementById('inputstring').value);">calculate</button>
+		<div class="buttons">
+			<button onclick="calculate(document.getElementById('inputstring').value);">calculate</button>
+		</div>
 	</section>
 	<section class="aoc-output">
 		<h3>Output</h3>
