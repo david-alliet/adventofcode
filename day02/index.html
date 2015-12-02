@@ -1,0 +1,59 @@
+<html>
+<head>
+	<title>Advent of Code - Day 02 - Solution</title>
+	<script type="text/javascript">
+
+		function calculate(inputString) {
+			// break string into seperate lines
+			var valuesList = inputString.split("\n");
+			var totalValueFormula1 = 0;
+			var totalValueFormula2 = 0;
+			for(var i=0; i<valuesList.length; i++) {
+				// break lines into seperate values
+				valuesList[i] = valuesList[i].split("x");
+
+				// find the smallest value
+				// javascript sort method wont work out of the box because it sorts based on unicode
+				// javascript sort method can be extended with a compare function method (see mdn)
+				valuesList[i].sort(function(a, b){ return a-b; });
+				
+				// calculate values: (x*y) + 2(x*y) + 2(x*z) + 2(y*z)
+				// providing the values are sorted small to large
+				totalValueFormula1 += valuesList[i][0]*valuesList[i][1] + 2*valuesList[i][0]*valuesList[i][1] + 2*valuesList[i][0]*valuesList[i][2] + 2*valuesList[i][1]*valuesList[i][2];
+				totalValueFormula2 += (2*valuesList[i][0]) + (2*valuesList[i][1]) + (valuesList[i][0]*valuesList[i][1]*valuesList[i][2]);
+			}
+			document.getElementById("aoc-output-container").innerHTML = "<p>";
+			document.getElementById("aoc-output-container").innerHTML += "The total calculated amount for part 1 is <strong>" + totalValueFormula1 + "</strong><br>";
+			document.getElementById("aoc-output-container").innerHTML += "The total calculated amount for part 2 is <strong>" + totalValueFormula2 + "</strong>";
+			document.getElementById("aoc-output-container").innerHTML += "</p>";
+		}
+	</script>
+	<link rel="stylesheet" type="text/css" href="../styles/default.css">
+</head>
+<body>
+<header>
+	<h1>Advent of Code</h1>
+</header>
+<article class="main">
+	<header>
+		<h2>Day 02</h2>
+	</header>
+	<section class="aoc-description">
+		<h3>Instructions</h3>
+		<p><strong>Part 1.</strong> Given an input string with the format <code>AxBxC</code> on each line, calculate the sum of all the lines where each line is calculate as followed: <code>(AB) + (2AB) + (2AC) + (2BC)</code>, providing that the list of values is sorted small to big.</p>
+		<p><strong>Part 2.</strong> Also calculate the total amount from the same source string using the formula <code>(2A+2B) + (ABC)</code>, again providing the list of values is sorted small to big.</p>
+	</section>
+	<section class="aoc-input">
+		<h3>Input</h3>
+		<textarea id="inputstring"></textarea>
+		<div class="buttons">
+			<button onclick="calculate(document.getElementById('inputstring').value);">calculate</button>
+		</div>
+	</section>
+	<section class="aoc-output">
+		<h3>Output</h3>
+		<div id="aoc-output-container"></div>
+	</section>
+</article>
+</body>
+</html>
