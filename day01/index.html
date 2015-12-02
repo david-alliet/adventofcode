@@ -51,21 +51,20 @@
 			};
 			
 			var result = searchString.countValue(config);
-			document.getElementById("oac-output-container").innerHTML = "";
-			document.getElementById("oac-output-container").innerHTML += "<p>";
-			document.getElementById("oac-output-container").innerHTML += "Total value of string: <strong>"+ result.totalvalue +"</strong><br>";
+			document.getElementById("aoc-output-container").innerHTML = "";
+			document.getElementById("aoc-output-container").innerHTML += "<p>";
+			document.getElementById("aoc-output-container").innerHTML += "Total value of string: <strong>"+ result.totalvalue +"</strong><br>";
 			if(result.foundposition===false)
-				document.getElementById("oac-output-container").innerHTML += "String did not reach value "+ config.searchvalue;
+				document.getElementById("aoc-output-container").innerHTML += "String did not reach value "+ config.searchvalue;
 			else 
-				document.getElementById("oac-output-container").innerHTML += "Value "+ config.searchvalue +" reached at position: <strong>"+ result.foundposition +"</strong>";
-			document.getElementById("oac-output-container").innerHTML += "</p>";
+				document.getElementById("aoc-output-container").innerHTML += "Value "+ config.searchvalue +" reached at position: <strong>"+ result.foundposition +"</strong>";
+			document.getElementById("aoc-output-container").innerHTML += "</p>";
 		}	
 
 	</script>
 	<link rel="stylesheet" type="text/css" href="../styles/default.css">
 </head>
 <body>
-
 <header>
 	<h1>Advent of Code</h1>
 </header>
@@ -89,9 +88,8 @@
 	</section>
 	<section class="aoc-output">
 		<h3>Output</h3>
-		<div id="oac-output-container"></div>
+		<div id="aoc-output-container"></div>
 	</section>
 </article>
-
 </body>
 </html>
