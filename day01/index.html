@@ -1,0 +1,91 @@
+<html>
+<head>
+	<title>Advent of Code - Day 01 - Solution</title>
+	<script type="text/javascript">
+
+		String.prototype.countValue = function(config){
+			var totalValue = 0;
+			var currentPosition = 0;
+			var foundValueAtPosition = 0;
+			var valueFound = false;
+
+			// loop through the entire string
+			for(var i=0; i<this.length; i++) {
+				currentPosition++;
+				
+				// loop through the character array from config to count the total value of the string
+				for(var j=0; j<config.characters.length; j++){
+					// if the character matches a configured character, add the value to the total value of the string
+					if(this[i]==config.characters[j].character) 
+						totalValue += config.characters[j].value;
+				}
+
+				// check if the configured search value is found
+				if(totalValue==config.searchvalue) {
+					valueFound = true;
+					foundValueAtPosition = currentPosition;
+				}
+			}
+
+			return {
+				"totalvalue": totalValue,
+				"foundposition": foundValueAtPosition
+			};
+
+		};
+
+		function calculate (searchString) {
+			// create a JSON object with the configuration for the value search
+			var config = {
+				"characters": [
+					{
+						"character": "(",
+						"value": 1
+					},
+					{
+						"character": ")",
+						"value": -1
+					}
+				],
+				"searchvalue": -1
+			};
+			
+			var result = searchString.countValue(config);
+			document.getElementById("oac-output-container").innerHTML = "";
+			document.getElementById("oac-output-container").innerHTML += "<p>";
+			document.getElementById("oac-output-container").innerHTML += "Total value of string: <strong>"+ result.totalvalue +"</strong><br>";
+			document.getElementById("oac-output-container").innerHTML += "Found value at position: <strong>"+ result.foundposition +"</strong>";
+		}	document.getElementById("oac-output-container").innerHTML += "</p>";
+
+	</script>
+	<link rel="stylesheet" type="text/css" href="../styles/default.css">
+</head>
+<body>
+
+<header>
+	<h1>Advent of Code</h1>
+</header>
+<article class="main">
+	<header>
+		<h2>Day 01</h2>
+	</header>
+	<section class="aoc-description">
+		<h3>Instructions</h3>
+		<p><strong>Part 1.</strong> Given an input string containing random parenthesis, calculate the end result using the following instructions:
+		<p><code>( = +1<br>
+		) = -1</code></p>
+		<p><strong>Part 2.</strong> Using the same string, calculate the first time the calculation will result in -1.</p>
+	</section>
+	<section class="aoc-input">
+		<h3>Input</h3>
+		<textarea id="inputstring"></textarea>
+		<button onclick="calculate(document.getElementById('inputstring').value);">calculate</button>
+	</section>
+	<section class="aoc-output">
+		<h3>Output</h3>
+		<div id="oac-output-container"></div>
+	</section>
+</article>
+
+</body>
+</html>

@@ -14,6 +14,8 @@
 				
 				if(totalValue==searchValue) return(i+1);
 			}
+
+			return false;
 		};
 
 		function calculate (searchString) {
@@ -22,20 +24,31 @@
 		}
 
 	</script>
-
-	<style type="text/css">
-		
-		body {}
-
-	</style>
+	<link rel="stylesheet" type="text/css" href="../styles/default.css">
 </head>
 <body>
 
-<div class="aoc-input">
+<header><h1>Advent of Code</h1></header>
+<article class="main">
+	<header><h2>Day 01</h2></header>
+	<section class="aoc-description">
+		<h3>Instructions</h3>
+		<p><strong>Part 1.</strong> Given an input string containing random parenthesis, calculate the end result using the following instructions:
+		<p><code>( = +1<br>
+		) = -1</code></p>
+		<p><strong>Part 2.</strong> Using the same string, calculate the first time the calculation will result in -1.</p>
+	</section>
+	<section class="aoc-input">
+		<h3>Input</h3>
 		<textarea id="inputstring"></textarea>
 		<button onclick="calculate(document.getElementById('inputstring').value);">calculate</button>
-</div>
+	</section>
 
+	<section class="aoc-output">
+		<h3>Output</h3>
+		<div id="oac-output-container"></div>
+	</section>
+</article>
 
 </body>
 </html>
