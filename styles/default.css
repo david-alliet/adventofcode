@@ -82,6 +82,11 @@ section strong {
 textarea {
 	width: 100%;
 	height: 10em;
+	border: 1px #05679a solid;
+	padding: 1em;
+	color: #333;
+	font-family: monospace;
+	background: #eee;
 }
 
 .buttons {
