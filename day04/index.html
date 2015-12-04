@@ -1,0 +1,34 @@
+<html>
+<head>
+	<title>Advent of Code - Day 04 - Solution</title>
+	<script type="text/javascript" src="solution.js"></script>
+	<link rel="stylesheet" type="text/css" href="../styles/default.css">
+</head>
+<body>
+<header>
+	<h1>Advent of Code</h1>
+</header>
+<article class="main">
+	<header>
+		<h2>Day 04</h2>
+	</header>
+	<section class="aoc-description">
+		<h3>Instructions</h3>
+		<p>Calculate MD5 hashes:</p>
+		<p><strong>Part 1.</strong> A given string is the first part of the string to hash, a number is the second part of the string. Find the lowest number that will result in the hash starting with 5 zero's.</p>
+		<p><strong>Part 2.</strong> Now find the lowest number resulting in a hash starting with 6 zero's.</p>
+	</section>
+	<section class="aoc-input">
+		<h3>Input</h3>
+		<textarea id="inputstring"></textarea>
+		<div class="buttons">
+			<button onclick="calculate(document.getElementById('inputstring').value);">calculate</button>
+		</div>
+	</section>
+	<section class="aoc-output">
+		<h3>Output</h3>
+		<div id="aoc-output-container"></div>
+	</section>
+</article>
+</body>
+</html>
