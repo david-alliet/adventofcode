@@ -106,3 +106,17 @@ button {
 	border-radius: 0.4em;
 	border-bottom: 0.2em #333 solid;
 }
+
+a { 
+	display: inline-block;
+	font-size: 0.9em;
+	background: #05679a;
+	color: #eee;
+	padding: 0.1em 0.3em;
+	border-radius: 0.3em;
+	text-decoration: none;
+}
+
+a:hover {
+	background: #333;
+}
