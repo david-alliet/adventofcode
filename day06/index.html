@@ -1,0 +1,42 @@
+
+<html>
+<head>
+	<title>Advent of Code - Day 06 - Solution</title>
+	<script type="text/javascript" src="solution.js"></script>
+	<link rel="stylesheet" type="text/css" href="../styles/default.css">
+</head>
+<body>
+<header>
+	<h1>Advent of Code</h1>
+</header>
+<article class="main">
+	<header>
+		<h2>Day 06</h2>
+	</header>
+	<section class="aoc-description">
+		<h3>Instructions</h3>
+		<p>Evaluate a set of instructions to turn on elements in a 2 dimensional array. The instructions can be the following:</p>
+		<p><code>ACTION x1,y1 through x2,y2</code></p>
+		<p>With action being: </p>
+		<ul>
+			<li><code>turn on</code></li>
+			<li><code>turn off</code></li>
+			<li><code>toggle</code></li>
+		</ul>
+		<p><strong>Part 1.</strong> How many elements are turned on?</p>
+		<p><strong>Part 2.</strong> What the total brightness if on increased brightness by 1, off decreases brightness by 1 and toggle increases brightness by 2?</p>
+	</section>
+	<section class="aoc-input">
+		<h3>Input</h3>
+		<textarea id="inputstring"></textarea>
+		<div class="buttons">
+			<button onclick="solve(document.getElementById('inputstring').value);">calculate</button>
+		</div>
+	</section>
+	<section class="aoc-output">
+		<h3>Output</h3>
+		<div id="aoc-output-container"></div>
+	</section>
+</article>
+</body>
+</html>
